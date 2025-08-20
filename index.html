@@ -79,7 +79,7 @@
 
     // --------- Init ----------
     (async function init(){
-      const res = await fetch('https://github.com/siddheshmandavkar/GetDeal/blob/main/product.json');
+      const res = await fetch('https://cors-anywhere.herokuapp.com/https://github.com/siddheshmandavkar/GetDeal/blob/main/product.json');
       PRODUCTS = await res.json();
 
       CATS = [...new Set(PRODUCTS.map(p => p.Category || 'Others'))];
