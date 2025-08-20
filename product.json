@@ -1,0 +1,56 @@
+[
+  {
+    "ASIN": "B07PGL2ZSL",
+    "Title": "Dot & Key Strawberry Dew Tinted Sunscreen SPF 50+",
+    "Price": "₹499",
+    "ImageUrl": "https://m.media-amazon.com/images/I/61P6hR4ERWL._SX679_.jpg",
+    "AffiliateLink": "https://amzn.to/4fEu5R2",
+    "Category": "Skincare",
+    "StarRating": 4,
+    "ReviewCount": 1245,
+    "IsFeatured": true,
+    "Badge": "Hot Deal"
+  },
+  {
+    "ASIN": "B08N5WRWNW",
+    "Title": "The Derma Co 1% Hyaluronic Sunscreen Aqua Gel SPF 50 PA++++",
+    "Price": "₹423",
+    "ImageUrl": "https://m.media-amazon.com/images/I/61r7v2ziqPL._SX679_.jpg",
+    "AffiliateLink": "https://amzn.to/4fJ8iYH",
+    "Category": "Skincare",
+    "StarRating": 5,
+    "ReviewCount": 2451,
+    "DiscountPercent": 15
+  },
+  {
+    "ASIN": "B0CHX1J8RN",
+    "Title": "Apple AirPods Pro (2nd Gen, USB-C)",
+    "Price": "₹24,999",
+    "ImageUrl": "https://m.media-amazon.com/images/I/61SUj2aKoEL._SX679_.jpg",
+    "AffiliateLink": "https://amzn.to/your-short-airpodspro",
+    "Category": "Apple",
+    "StarRating": 5,
+    "ReviewCount": 11234,
+    "IsFeatured": true
+  },
+  {
+    "ASIN": "B0D7HQLXCV",
+    "Title": "Apple iPhone 15 (128 GB, Blue)",
+    "Price": "₹69,999",
+    "ImageUrl": "https://m.media-amazon.com/images/I/61Oj8v9iJ5L._SX679_.jpg",
+    "AffiliateLink": "https://amzn.to/your-short-iphone15",
+    "Category": "Apple",
+    "StarRating": 4,
+    "ReviewCount": 8421
+  },
+  {
+    "ASIN": "B0Cheap123",
+    "Title": "Budget USB-C Cable (2 Pack, 1m + 2m)",
+    "Price": "₹199",
+    "ImageUrl": "https://m.media-amazon.com/images/I/71sNfY6Y3zL._SX679_.jpg",
+    "AffiliateLink": "https://amzn.to/your-short-cable",
+    "Category": "Budget",
+    "StarRating": 4,
+    "ReviewCount": 987
+  }
+]
