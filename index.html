@@ -79,7 +79,7 @@
 
     // --------- Init ----------
     (async function init(){
-      const res = await fetch('/product.json');
+      const res = await fetch('product.json');
       PRODUCTS = await res.json();
 
       CATS = [...new Set(PRODUCTS.map(p => p.Category || 'Others'))];
