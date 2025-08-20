@@ -1,31 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Amazon Picks – Trending Deals</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DealShine - Affiliate Store</title>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2472190760086309"
-     crossorigin="anonymous"></script> 
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Amazon Picks – Trending deals curated with affiliate links.">
-  <link rel="icon" href="favicon.ico">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-
-  <style>
-    body {background:#f8fafc;}
-    .hover-card {transition: transform .25s ease, box-shadow .25s ease;}
-    .hover-card:hover {transform: translateY(-6px); box-shadow: 0 12px 26px rgba(0,0,0,.12);}
-    .product-img {max-height:220px; object-fit:contain; transition: transform .25s ease;}
-    .hover-card:hover .product-img {transform: scale(1.04);}
-    .title-2lines {line-height:1.3rem; height:2.6rem; overflow:hidden;}
-    .star {font-size:1.05rem; line-height:1;}
-    .tab-pill .nav-link {border-radius:999px;}
-  </style>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2472190760086309" crossorigin="anonymous"></script>
 </head>
-<body>
-  <!-- Navbar -->
+<body class="bg-light">
+
+  <!-- ✅ Navbar -->
   <nav class="navbar navbar-expand-lg bg-white border-bottom">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">🛍️ DealShine</a>
@@ -33,211 +21,81 @@
     </div>
   </nav>
 
-  <!-- ✅ Small Horizontal Ad (below navbar) -->
-  <div class="container my-3 text-center">
-  <!-- googlead-sidbar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2472190760086309"
-     data-ad-slot="4635913184"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  </div>
-
-  <!-- ✅ Single Main Section -->
-  <main class="container py-4">
+  <!-- ✅ Main Layout -->
+  <main class="container-fluid py-3">
     <div class="row">
       
-      <!-- Left Sidebar -->
-      <div class="col-lg-3">
-        <!-- Sidebar_Ad -->
+      <!-- ✅ Left Sidebar (Vertical Ad) -->
+      <aside class="col-lg-2 d-none d-lg-block text-center">
         <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             style="display:inline-block;width:160px;height:600px"
+             data-ad-client="ca-pub-2472190760086309"
+             data-ad-slot="1234567890"></ins>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-      </div>
+      </aside>
 
-      <!-- Main Content -->
-      <div class="col-lg-9">
+      <!-- ✅ Main Content -->
+      <section class="col-lg-10">
         
-        <!-- Controls -->
+        <!-- ✅ Horizontal Ad (Top Banner) -->
+        <div class="text-center mb-3">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-2472190760086309"
+               data-ad-slot="4635913184"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+        <!-- ✅ Controls (Search / Sort / Tabs) -->
         <div class="row align-items-center g-3 mb-4">
-          <div class="col-lg-6">
-            <ul class="nav nav-pills tab-pill" id="categoryTabs"></ul>
+          <div class="col-md-4">
+            <input type="text" id="search" class="form-control" placeholder="Search products...">
           </div>
-          <div class="col-lg-6">
-            <div class="d-flex gap-2 justify-content-lg-end">
-              <input id="searchInput" class="form-control" placeholder="Search products…" />
-              <select id="sortSelect" class="form-select" style="max-width:220px;">
-                <option value="featured">Sort: Featured</option>
-                <option value="priceAsc">Price: Low to High</option>
-                <option value="priceDesc">Price: High to Low</option>
-                <option value="ratingDesc">Rating: High to Low</option>
-                <option value="reviewsDesc">Reviews: High to Low</option>
-              </select>
+          <div class="col-md-4">
+            <select id="sort" class="form-select">
+              <option value="">Sort by</option>
+              <option value="low">Price: Low to High</option>
+              <option value="high">Price: High to Low</option>
+            </select>
+          </div>
+          <div class="col-md-4 text-end">
+            <ul class="nav nav-tabs" id="tabs">
+              <li class="nav-item"><a class="nav-link active" href="#">All</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Electronics</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Fashion</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ✅ Products Section -->
+        <div class="tab-content" id="tabContent">
+          <div class="row g-3">
+            <!-- Example Product -->
+            <div class="col-md-3">
+              <div class="card h-100 shadow-sm">
+                <img src="https://m.media-amazon.com/images/I/61P6hR4ERWL._SX679_.jpg" class="card-img-top" alt="Product">
+                <div class="card-body text-center">
+                  <h6 class="card-title">Dot & Key Strawberry Dew Tinted Sunscreen SPF 50+</h6>
+                  <p class="text-primary fw-bold">₹499</p>
+                  <a href="https://amzn.to/" target="_blank" class="btn btn-sm btn-warning">View Deal</a>
+                </div>
+              </div>
             </div>
+            <!-- Repeat product cards dynamically -->
           </div>
         </div>
 
-        <!-- Tabs content -->
-        <div class="tab-content" id="tabContent"></div>
-
-        <!-- Disclaimer -->
-        <div class="alert alert-info mt-5 text-center small">
-          <strong>Disclaimer:</strong> As an Amazon Associate I earn from qualifying purchases.
-          Prices, ratings, review counts and availability may change on Amazon.
-        </div>
-      </div>
+      </section>
     </div>
   </main>
 
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    // --------- Utilities ----------
-    const money = s => {
-      if (!s) return null;
-      const n = parseFloat(s.replace(/[^\d.]/g,'').replace(/,/g,''));
-      return isNaN(n) ? null : n;
-    };
-
-    const starHtml = n => {
-      n = Math.max(0, Math.min(5, +n || 0));
-      return Array.from({length: 5}, (_, i) =>
-        i < n ? '<span class="text-warning star">★</span>' : '<span class="text-secondary star">☆</span>'
-      ).join('');
-    };
-
-    const nf = v => v || v===0 ? new Intl.NumberFormat().format(v) : '';
-
-    // --------- Data + State ----------
-    let PRODUCTS = [];
-    let CATS = [];
-    let ACTIVE = null;
-
-    // --------- Init ----------
-    (async function init(){
-      try {
-        const res = await fetch('product.json'); // ✅ ensure this file exists
-        PRODUCTS = await res.json();
-
-        CATS = [...new Set(PRODUCTS.map(p => p.Category || 'Others'))];
-        ACTIVE = CATS[0];
-
-        renderTabs();
-        renderPanes();
-        bindEvents();
-        apply();
-      } catch(err) {
-        console.error("Failed to load products:", err);
-        document.getElementById('tabContent').innerHTML =
-          `<div class="alert alert-danger">Error loading products.</div>`;
-      }
-    })();
-
-    function bindEvents(){
-      document.getElementById('searchInput').addEventListener('input', apply);
-      document.getElementById('sortSelect').addEventListener('change', apply);
-      document.getElementById('tabContent').addEventListener('shown.bs.tab', e=>{
-        ACTIVE = e.target.textContent.trim();
-        apply();
-      });
-    }
-
-    function renderTabs(){
-      const ul = document.getElementById('categoryTabs');
-      ul.innerHTML = '';
-      CATS.forEach((c,i)=>{
-        const id = c.replace(/\s+/g,'');
-        const li = document.createElement('li'); 
-        li.className='nav-item';
-        li.innerHTML = `<button class="nav-link ${i===0?'active':''}" data-bs-toggle="pill" data-bs-target="#tab-${id}" type="button">${c}</button>`;
-        ul.appendChild(li);
-      });
-    }
-
-    function renderPanes(){
-      const content = document.getElementById('tabContent');
-      content.innerHTML = '';
-      CATS.forEach((c,i)=>{
-        const id = c.replace(/\s+/g,'');
-        const pane = document.createElement('div');
-        pane.className = `tab-pane fade ${i===0?'show active':''}`;
-        pane.id = `tab-${id}`;
-        pane.innerHTML = `<div class="row g-4" data-cat="${c}"></div>`;
-        content.appendChild(pane);
-      });
-    }
-
-    function apply(){
-      const q = document.getElementById('searchInput').value.toLowerCase().trim();
-      const sort = document.getElementById('sortSelect').value;
-
-      const filtered = PRODUCTS
-        .filter(p => (p.Category || 'Others') === ACTIVE)
-        .filter(p => !q || (p.Title||'').toLowerCase().includes(q));
-
-      const arr = [...filtered];
-      switch(sort){
-        case 'priceAsc': arr.sort((a, b) => (money(a.Price)||Infinity) - (money(b.Price)||Infinity)); break;
-        case 'priceDesc': arr.sort((a, b) => (money(b.Price)||-Infinity) - (money(a.Price)||-Infinity)); break;
-        case 'ratingDesc': arr.sort((a, b) => (b.StarRating||0) - (a.StarRating||0)); break;
-        case 'reviewsDesc': arr.sort((a, b) => (b.ReviewCount||0) - (a.ReviewCount||0)); break;
-        default: arr.sort((a,b)=>(b.IsFeatured?1:0)-(a.IsFeatured?1:0));
-      }
-      renderGrid(arr);
-    }
-
-    function renderGrid(items){
-      const row = document.querySelector(`.tab-pane.show.active .row.g-4`);
-      if(!row) return;
-      row.innerHTML = '';
-
-      items.forEach(p=>{
-        const badge = p.Badge ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">${p.Badge}</span>` :
-                       p.DiscountPercent ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">-${p.DiscountPercent}% OFF</span>` : '';
-
-        const col = document.createElement('div');
-        col.className = 'col-lg-3 col-md-4 col-sm-6';
-        col.innerHTML = `
-          <div class="card h-100 border-0 rounded-4 shadow-sm position-relative overflow-hidden hover-card">
-            ${badge}
-            <div class="bg-white text-center">
-              <img class="product-img p-3 w-100" src="${p.ImageUrl}" alt="${p.Title}">
-            </div>
-
-            <div class="card-body d-flex flex-column">
-              <h6 class="title-2lines fw-semibold" title="${p.Title}">${p.Title}</h6>
-
-              <div class="mb-1">
-                ${starHtml(p.StarRating)}
-                <small class="text-muted">(${nf(p.ReviewCount||0)} reviews)</small>
-              </div>
-
-              <p class="text-success fw-bold mb-0">${p.Price||''}</p>
-              <p class="small text-muted fst-italic mb-2">💡 Amount may vary on Amazon</p>
-
-              <a class="btn btn-warning text-dark fw-bold mt-auto"
-                 href="${p.AffiliateLink||'#'}"
-                 target="_blank"
-                 rel="nofollow noopener noreferrer">
-                🛒 Buy Now on Amazon
-              </a>
-            </div>
-          </div>
-        `;
-        row.appendChild(col);
-      });
-    }
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
