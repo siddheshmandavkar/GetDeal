@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Amazing Deals</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #232f3e; /* Amazon-style navy */
+    }
+    .contact-box {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: #ff9900; /* Amazon orange */
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #e68a00;
+    }
+    .alt-contact {
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+    .alt-contact a {
+      color: #ff9900;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-box">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Whether you have questions about our deals, suggestions, or need support, feel free to reach out.</p>
+    
+    <form action="mailto:youremail@amazingdeals.com" method="post" enctype="text/plain">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="alt-contact">
+      <p>Or email us directly at: <a href="mailto:siddhesh.mandavkar95@gmail.com">siddhesh.mandavkar95@gmail.com</a></p>
+    </div>
+  </div>
+</body>
+</html>
