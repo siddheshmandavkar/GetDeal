@@ -51,7 +51,7 @@
 	"DiscountPercent": 16  
 	
   },
-	  {
+  {
     "ASIN": "B07PGL2ZSS",
     "Title": "ea ekam art Sun Protection Rajasthani Umbrella Handicraft Walking Stick - 5 Pieces",
     "Price": "₹975",
@@ -61,7 +61,19 @@
     "StarRating": 4,
     "ReviewCount": 479, 
     "Badge": "Hot Deal",
-	"DiscountPercent": 44 
+	"DiscountPercent": 44  
+  },
+ {
+    "ASIN": "B07PGL2ZSU",
+    "Title": "soundcore by Anker R50i VI True Wireless Earbuds, 10mm Drivers with Big Bass, Bluetooth 5.3, 30H Long Playtime, Water-Resistant, 2 Mics for AI Clear Calls, 22 Preset EQs, Customization (Blue)",
+    "Price": "₹999",
+    "ImageUrl": "https://m.media-amazon.com/images/I/612Z9cuWLpL._SY450_.jpg",
+    "AffiliateLink": "https://amzn.to/4lGVSSg",
+    "Category": "Earbuds",
+    "StarRating": 4,
+    "ReviewCount": 50989, 
+    "Badge": "Hot Deal",
+	"DiscountPercent": 56 
 	
-  } 
+  } 	
 ]
