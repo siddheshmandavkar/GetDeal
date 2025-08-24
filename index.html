@@ -234,7 +234,7 @@
     const sort = document.getElementById('sortSelect').value; 
 
     const filtered = PRODUCTS
-      .filter(p => ACTIVE === 'All' || (p.Category||'Others').trim() === ACTIVE)
+      .filter(p => ACTIVE === 'All' || ((p.Category||'Others').trim().toLowerCase() === ACTIVE.toLowerCase()))
       .filter(p => !q || (p.Title||'').toLowerCase().includes(q));
 
     const arr = [...filtered];
