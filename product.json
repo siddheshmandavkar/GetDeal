@@ -1,79 +1,79 @@
 [
   {
-    "ASIN": "B07PGL2ZSL",
-    "Title": "Dot & Key Strawberry Dew Tinted Sunscreen SPF 50+",
-    "Price": "₹499",
-    "ImageUrl": "https://m.media-amazon.com/images/I/61P6hR4ERWL._SX679_.jpg",
-    "AffiliateLink": "https://amzn.to/4fEu5R2",
-    "Category": "Skincare",
+    "ASIN": "6",
+    "Title": "soundcore by Anker R50i VI True Wireless Earbuds",
+    "Price": "999",
+    "ImageUrl": "https://m.media-amazon.com/images/I/612Z9cuWLpL._SY450_.jpg",
+    "AffiliateLink": "https://amzn.to/3UJ6NA0",
     "StarRating": 4,
-    "ReviewCount": 1245,
-    "IsFeatured": true,
-    "Badge": "Hot Deal",
-	"DiscountPercent": 15 
-	
+    "ReviewCount": 50989,
+    "IsFeatured": false,
+    "Badge": "Best Seller",
+    "DiscountPercent": 56
   },
   {
-    "ASIN": "B08N5WRWNW",
-    "Title": "The Derma Co 1% Hyaluronic Sunscreen Aqua Gel SPF 50 PA++++",
-    "Price": "₹423",
-    "ImageUrl": "https://m.media-amazon.com/images/I/61r7v2ziqPL._SX679_.jpg",
-    "AffiliateLink": "https://amzn.to/4fJ8iYH",
-    "Category": "Skincare",
-    "StarRating": 5,
-    "ReviewCount": 2451,
-    "DiscountPercent": 15
-  },
- {
-    "ASIN": "B07PGL2ZSD",
-    "Title": "TEKCOOL Reusable Heavy Duty Hand Gloves for Dishwashing",
-    "Price": "₹189",
-    "ImageUrl": "https://m.media-amazon.com/images/I/41bOD-7ewpL._SY300_SX300_QL70_FMwebp_.jpg",
-    "AffiliateLink": "https://amzn.to/3V8wREH",
-    "Category": "Skincare",
-    "StarRating": 4,
-    "ReviewCount": 301,
-    "IsFeatured": true,
-    "Badge": "Hot Deal",
-	"DiscountPercent": 76  
-	
-  },
- {
-    "ASIN": "B07PGL2ZSE",
-    "Title": "Emolene - Moisturizing Cream, Hydronourish Dry Skin, Restores Moisture Balance, Smoothens Skin, Non-Greasy, Non-Comedogenic, Hypoallergenic, Fast Absorbing, Anti-Aging, Deep Hydration, Lightweight, Suitable for All Skin Types for Men and Women, 100 grams",
-    "Price": "₹321",
-    "ImageUrl": "https://m.media-amazon.com/images/I/412UvznJ6jL._SX466_.jpg",
-    "AffiliateLink": "https://amzn.to/476npJs",
-    "Category": "Skincare",
-    "StarRating": 4,
-    "ReviewCount": 1,
-    "IsFeatured": true, 
-	"DiscountPercent": 16  
-	
-  },
-  {
-    "ASIN": "B07PGL2ZSS",
+    "ASIN": "5",
     "Title": "ea ekam art Sun Protection Rajasthani Umbrella Handicraft Walking Stick - 5 Pieces",
-    "Price": "₹975",
+    "Price": "975",
     "ImageUrl": "https://m.media-amazon.com/images/I/71E-d5PWnYL._SY450_.jpg",
     "AffiliateLink": "https://amzn.to/3Jwe7N1",
     "Category": "Fashion",
     "StarRating": 4,
-    "ReviewCount": 479, 
+    "ReviewCount": 479,
+    "IsFeatured": false,
     "Badge": "Hot Deal",
-	"DiscountPercent": 44  
+    "DiscountPercent": 44
   },
- {
-    "ASIN": "B07PGL2ZSU",
-    "Title": "soundcore by Anker R50i VI True Wireless Earbuds",
-    "Price": "₹999",
-    "ImageUrl": "https://m.media-amazon.com/images/I/612Z9cuWLpL._SY450_.jpg",
-    "AffiliateLink": "https://amzn.to/3UJ6NA0",
-    "Category": "Earbuds",
+  {
+    "ASIN": "1",
+    "Title": "Dot & Key Strawberry Dew Tinted Sunscreen SPF 50+",
+    "Price": "499",
+    "ImageUrl": "https://m.media-amazon.com/images/I/61P6hR4ERWL._SX679_.jpg",
+    "AffiliateLink": "https://amzn.to/4fEu5R2",
+    "Category": "SkinCare",
     "StarRating": 4,
-    "ReviewCount": 50989, 
+    "ReviewCount": 1245,
+    "IsFeatured": true,
     "Badge": "Hot Deal",
-	"DiscountPercent": 56 
-	
-  } 	
+    "DiscountPercent": 15
+  },
+  {
+    "ASIN": "4",
+    "Title": "Emolene - Moisturizing Cream, Hydronourish Dry Skin, Restores Moisture Balance, Smoothens Skin, Non-Greasy, Non-Comedogenic, Hypoallergenic, Fast Absorbing, Anti-Aging, Deep Hydration, Lightweight, Suitable for All Skin Types for Men and Women, 100 grams",
+    "Price": "321",
+    "ImageUrl": "https://m.media-amazon.com/images/I/412UvznJ6jL._SX466_.jpg",
+    "AffiliateLink": "https://amzn.to/476npJs",
+    "Category": "SkinCare",
+    "StarRating": 4,
+    "ReviewCount": 1,
+    "IsFeatured": true,
+    "Badge": "Hot Deal",
+    "DiscountPercent": 16
+  },
+  {
+    "ASIN": "3",
+    "Title": "TEKCOOL Reusable Heavy Duty Hand Gloves for Dishwashing",
+    "Price": "189",
+    "ImageUrl": "https://m.media-amazon.com/images/I/41bOD-7ewpL._SY300_SX300_QL70_FMwebp_.jpg",
+    "AffiliateLink": "https://amzn.to/3V8wREH",
+    "Category": "SkinCare",
+    "StarRating": 4,
+    "ReviewCount": 301,
+    "IsFeatured": true,
+    "Badge": "Hot Deal",
+    "DiscountPercent": 1
+  },
+  {
+    "ASIN": "2",
+    "Title": "The Derma Co 1% Hyaluronic Sunscreen Aqua Gel SPF 50 PA++++",
+    "Price": "423",
+    "ImageUrl": "https://m.media-amazon.com/images/I/61r7v2ziqPL._SX679_.jpg",
+    "AffiliateLink": "https://amzn.to/4fJ8iYH",
+    "Category": "SkinCare",
+    "StarRating": 5,
+    "ReviewCount": 2451,
+    "IsFeatured": false,
+    "Badge": "Hot Deal",
+    "DiscountPercent": 15
+  }
 ]
