@@ -188,7 +188,7 @@ function renderGrid(filteredProducts = null){
       <div class="card-body d-flex flex-column">
         <h6 class="title-2lines fw-semibold">${p.Title}</h6>
         <div class="mb-1">${starHtml(p.StarRating)} <small class="text-muted">(${nf(p.ReviewCount)} reviews)</small></div>
-        <p class="text-success fw-bold mb-0">${p.Price}</p>
+        <p class="text-success fw-bold mb-0">₹ ${p.Price}</p>
         <a class="btn btn-warning text-dark fw-bold mt-auto" href="${p.AffiliateLink}" target="_blank" rel="nofollow noopener noreferrer">🛒 Buy Now on Amazon</a>
       </div>
     </div>`;
