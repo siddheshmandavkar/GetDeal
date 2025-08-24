@@ -229,66 +229,67 @@
     });
   }
 
-  function apply(){
-    const q = document.getElementById('searchInput').value.toLowerCase().trim();
-    const sort = document.getElementById('sortSelect').value; 
+ function apply(){
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const sort = document.getElementById('sortSelect').value;
 
-    const filtered = PRODUCTS
-      .filter(p => ACTIVE === 'All' || ((p.Category||'Others').trim().toLowerCase() === ACTIVE.toLowerCase()))
-      .filter(p => !q || (p.Title||'').toLowerCase().includes(q));
+  const filtered = PRODUCTS
+    .filter(p => ACTIVE === 'All' || (p.Category || 'Others').trim().toLowerCase() === ACTIVE.toLowerCase())
+    .filter(p => !q || (p.Title || '').toLowerCase().includes(q));
 
-    const arr = [...filtered];
-    switch(sort){
-      case 'priceAsc': arr.sort((a, b) => (money(a.Price)||Infinity) - (money(b.Price)||Infinity)); break;
-      case 'priceDesc': arr.sort((a, b) => (money(b.Price)||-Infinity) - (money(a.Price)||-Infinity)); break;
-      case 'ratingDesc': arr.sort((a, b) => (b.StarRating||0) - (a.StarRating||0)); break;
-      case 'reviewsDesc': arr.sort((a, b) => (b.ReviewCount||0) - (a.ReviewCount||0)); break;
-      default: arr.sort((a,b)=>(b.IsFeatured?1:0)-(a.IsFeatured?1:0));
-    }
-    renderGrid(arr);
+  const arr = [...filtered];
+  switch(sort){
+    case 'priceAsc': arr.sort((a, b) => (money(a.Price)||Infinity) - (money(b.Price)||Infinity)); break;
+    case 'priceDesc': arr.sort((a, b) => (money(b.Price)||-Infinity) - (money(a.Price)||-Infinity)); break;
+    case 'ratingDesc': arr.sort((a, b) => (b.StarRating||0) - (a.StarRating||0)); break;
+    case 'reviewsDesc': arr.sort((a, b) => (b.ReviewCount||0) - (a.ReviewCount||0)); break;
+    default: arr.sort((a,b)=>(b.IsFeatured?1:0)-(a.IsFeatured?1:0));
   }
 
-  function renderGrid(items){
-    const row = document.querySelector(`.tab-pane.show.active .row.g-4`);
-    if(!row) return;
-    row.innerHTML = '';
+  // ✅ Find the correct tab-pane by ACTIVE category, not just "active tab"
+  const id = ACTIVE.replace(/\s+/g,'');
+  const row = document.querySelector(`#tab-${id} .row.g-4`);
+  if(!row) return;
+  row.innerHTML = '';
+  renderGrid(arr, row);
+}
+function renderGrid(items, row){
+  items.forEach(p=>{
+    const badge = p.Badge ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">${p.Badge}</span>` :
+                   p.DiscountPercent ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">-${p.DiscountPercent}% OFF</span>` : '';
 
-    items.forEach(p=>{
-      const badge = p.Badge ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">${p.Badge}</span>` :
-                     p.DiscountPercent ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">-${p.DiscountPercent}% OFF</span>` : '';
-
-      const col = document.createElement('div');
-      col.className = 'col-lg-3 col-md-4 col-sm-6';
-      col.innerHTML = `
-        <div class="card h-100 border-0 rounded-4 shadow-sm position-relative overflow-hidden hover-card">
-          ${badge}
-          <div class="bg-white text-center">
-            <img class="product-img p-3 w-100" src="${p.ImageUrl}" alt="${p.Title}">
-          </div>
-
-          <div class="card-body d-flex flex-column">
-            <h6 class="title-2lines fw-semibold" title="${p.Title}">${p.Title}</h6>
-
-            <div class="mb-1">
-              ${starHtml(p.StarRating)}
-              <small class="text-muted">(${nf(p.ReviewCount||0)} reviews)</small>
-            </div>
-
-            <p class="text-success fw-bold mb-0">${p.Price||''}</p>
-            <p class="small text-muted fst-italic mb-2">💡 Amount may vary on Amazon</p>
-
-            <a class="btn btn-warning text-dark fw-bold mt-auto"
-               href="${p.AffiliateLink||'#'}"
-               target="_blank"
-               rel="nofollow noopener noreferrer">
-              🛒 Buy Now on Amazon
-            </a>
-          </div>
+    const col = document.createElement('div');
+    col.className = 'col-lg-3 col-md-4 col-sm-6';
+    col.innerHTML = `
+      <div class="card h-100 border-0 rounded-4 shadow-sm position-relative overflow-hidden hover-card">
+        ${badge}
+        <div class="bg-white text-center">
+          <img class="product-img p-3 w-100" src="${p.ImageUrl}" alt="${p.Title}">
         </div>
-      `;
-      row.appendChild(col);
-    });
-  }
+
+        <div class="card-body d-flex flex-column">
+          <h6 class="title-2lines fw-semibold" title="${p.Title}">${p.Title}</h6>
+
+          <div class="mb-1">
+            ${starHtml(p.StarRating)}
+            <small class="text-muted">(${nf(p.ReviewCount||0)} reviews)</small>
+          </div>
+
+          <p class="text-success fw-bold mb-0">${p.Price||''}</p>
+          <p class="small text-muted fst-italic mb-2">💡 Amount may vary on Amazon</p>
+
+          <a class="btn btn-warning text-dark fw-bold mt-auto"
+             href="${p.AffiliateLink||'#'}"
+             target="_blank"
+             rel="nofollow noopener noreferrer">
+            🛒 Buy Now on Amazon
+          </a>
+        </div>
+      </div>
+    `;
+    row.appendChild(col);
+  });
+}
 </script>
 
 </body>
