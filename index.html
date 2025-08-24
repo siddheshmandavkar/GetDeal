@@ -199,7 +199,7 @@
     document.getElementById('searchInput').addEventListener('input', apply);
     document.getElementById('sortSelect').addEventListener('change', apply);
     document.getElementById('categoryTabs').addEventListener('shown.bs.tab', e=>{
-    ACTIVE = e.target.textContent.trim().toLowerCase();
+    ACTIVE = e.target.textContent.trim();
       apply();
     });
   }
