@@ -182,6 +182,8 @@
         const res = await fetch('product.json'); // ✅ ensure this file exists
         PRODUCTS = await res.json();
 
+       
+        
         CATS = [...new Set(PRODUCTS.map(p => p.Category || 'Others'))];
         ACTIVE = CATS[0];
 
@@ -232,10 +234,10 @@
 
     function apply(){
       const q = document.getElementById('searchInput').value.toLowerCase().trim();
-      const sort = document.getElementById('sortSelect').value;
+      const sort = document.getElementById('sortSelect').value; 
 
-      const filtered = PRODUCTS
-        .filter(p => (p.Category || 'Others') === ACTIVE)
+       const filtered = PRODUCTS
+        .filter(p => ACTIVE === 'All' || (p.Category||'Others').trim() === ACTIVE)
         .filter(p => !q || (p.Title||'').toLowerCase().includes(q));
 
       const arr = [...filtered];
