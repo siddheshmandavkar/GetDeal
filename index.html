@@ -147,7 +147,7 @@
 
   async function loadProducts(){
     try{
-      const res = await fetch('D:\Siddhesh\Proj\Affiliate\Amazon\test\product.json');
+      const res = await fetch('product.json');
       PRODUCTS = await res.json();
       CATS = ['All', ...new Set(PRODUCTS.map(p=>p.Category))];
       renderSidebar();
