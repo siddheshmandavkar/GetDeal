@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -153,145 +152,144 @@
       }
     };
   </script>
-  
   <script>
-    // --------- Utilities ----------
-    const money = s => {
-      if (!s) return null;
-      const n = parseFloat(s.replace(/[^\d.]/g,'').replace(/,/g,''));
-      return isNaN(n) ? null : n;
-    };
+  // --------- Utilities ----------
+  const money = s => {
+    if (!s) return null;
+    const n = parseFloat(s.replace(/[^\d.]/g,'').replace(/,/g,''));
+    return isNaN(n) ? null : n;
+  };
 
-    const starHtml = n => {
-      n = Math.max(0, Math.min(5, +n || 0));
-      return Array.from({length: 5}, (_, i) =>
-        i < n ? '<span class="text-warning star">★</span>' : '<span class="text-secondary star">☆</span>'
-      ).join('');
-    };
+  const starHtml = n => {
+    n = Math.max(0, Math.min(5, +n || 0));
+    return Array.from({length: 5}, (_, i) =>
+      i < n ? '<span class="text-warning star">★</span>' : '<span class="text-secondary star">☆</span>'
+    ).join('');
+  };
 
-    const nf = v => v || v===0 ? new Intl.NumberFormat().format(v) : '';
+  const nf = v => v || v===0 ? new Intl.NumberFormat().format(v) : '';
 
-    // --------- Data + State ----------
-    let PRODUCTS = [];
-    let CATS = [];
-    let ACTIVE = null;
+  // --------- Data + State ----------
+  let PRODUCTS = [];
+  let CATS = [];
+  let ACTIVE = null;
 
-    // --------- Init ----------
-    (async function init(){
-      try {
-        const res = await fetch('product.json'); // ✅ ensure this file exists
-        PRODUCTS = await res.json();
+  // --------- Init ----------
+  (async function init(){
+    try {
+      const res = await fetch('product.json'); // ✅ ensure this file exists
+      PRODUCTS = await res.json();
 
-       
-        
-        CATS = [...new Set(PRODUCTS.map(p => p.Category || 'Others'))];
-        ACTIVE = CATS[0];
+      // ✅ FIX: Add "All" and trim categories
+      CATS = ['All', ...new Set(PRODUCTS.map(p => (p.Category || 'Others').trim()))];
+      ACTIVE = 'All';
 
-        renderTabs();
-        renderPanes();
-        bindEvents();
-        apply();
-      } catch(err) {
-        console.error("Failed to load products:", err);
-        document.getElementById('tabContent').innerHTML =
-          `<div class="alert alert-danger">Error loading products.</div>`;
-      }
-    })();
-
-    function bindEvents(){
-      document.getElementById('searchInput').addEventListener('input', apply);
-      document.getElementById('sortSelect').addEventListener('change', apply);
-      document.getElementById('tabContent').addEventListener('shown.bs.tab', e=>{
-        ACTIVE = e.target.textContent.trim();
-        apply();
-      });
+      renderTabs();
+      renderPanes();
+      bindEvents();
+      apply();
+    } catch(err) {
+      console.error("Failed to load products:", err);
+      document.getElementById('tabContent').innerHTML =
+        `<div class="alert alert-danger">Error loading products.</div>`;
     }
+  })();
 
-    function renderTabs(){
-      const ul = document.getElementById('categoryTabs');
-      ul.innerHTML = '';
-      CATS.forEach((c,i)=>{
-        const id = c.replace(/\s+/g,'');
-        const li = document.createElement('li'); 
-        li.className='nav-item';
-        li.innerHTML = `<button class="nav-link ${i===0?'active':''}" data-bs-toggle="pill" data-bs-target="#tab-${id}" type="button">${c}</button>`;
-        ul.appendChild(li);
-      });
+  function bindEvents(){
+    document.getElementById('searchInput').addEventListener('input', apply);
+    document.getElementById('sortSelect').addEventListener('change', apply);
+    document.getElementById('tabContent').addEventListener('shown.bs.tab', e=>{
+      ACTIVE = e.target.textContent.trim();
+      apply();
+    });
+  }
+
+  function renderTabs(){
+    const ul = document.getElementById('categoryTabs');
+    ul.innerHTML = '';
+    CATS.forEach((c,i)=>{
+      const id = c.replace(/\s+/g,'');
+      const li = document.createElement('li'); 
+      li.className='nav-item';
+      li.innerHTML = `<button class="nav-link ${i===0?'active':''}" data-bs-toggle="pill" data-bs-target="#tab-${id}" type="button">${c}</button>`;
+      ul.appendChild(li);
+    });
+  }
+
+  function renderPanes(){
+    const content = document.getElementById('tabContent');
+    content.innerHTML = '';
+    CATS.forEach((c,i)=>{
+      const id = c.replace(/\s+/g,'');
+      const pane = document.createElement('div');
+      pane.className = `tab-pane fade ${i===0?'show active':''}`;
+      pane.id = `tab-${id}`;
+      pane.innerHTML = `<div class="row g-4" data-cat="${c}"></div>`;
+      content.appendChild(pane);
+    });
+  }
+
+  function apply(){
+    const q = document.getElementById('searchInput').value.toLowerCase().trim();
+    const sort = document.getElementById('sortSelect').value; 
+
+    const filtered = PRODUCTS
+      .filter(p => ACTIVE === 'All' || (p.Category||'Others').trim() === ACTIVE)
+      .filter(p => !q || (p.Title||'').toLowerCase().includes(q));
+
+    const arr = [...filtered];
+    switch(sort){
+      case 'priceAsc': arr.sort((a, b) => (money(a.Price)||Infinity) - (money(b.Price)||Infinity)); break;
+      case 'priceDesc': arr.sort((a, b) => (money(b.Price)||-Infinity) - (money(a.Price)||-Infinity)); break;
+      case 'ratingDesc': arr.sort((a, b) => (b.StarRating||0) - (a.StarRating||0)); break;
+      case 'reviewsDesc': arr.sort((a, b) => (b.ReviewCount||0) - (a.ReviewCount||0)); break;
+      default: arr.sort((a,b)=>(b.IsFeatured?1:0)-(a.IsFeatured?1:0));
     }
+    renderGrid(arr);
+  }
 
-    function renderPanes(){
-      const content = document.getElementById('tabContent');
-      content.innerHTML = '';
-      CATS.forEach((c,i)=>{
-        const id = c.replace(/\s+/g,'');
-        const pane = document.createElement('div');
-        pane.className = `tab-pane fade ${i===0?'show active':''}`;
-        pane.id = `tab-${id}`;
-        pane.innerHTML = `<div class="row g-4" data-cat="${c}"></div>`;
-        content.appendChild(pane);
-      });
-    }
+  function renderGrid(items){
+    const row = document.querySelector(`.tab-pane.show.active .row.g-4`);
+    if(!row) return;
+    row.innerHTML = '';
 
-    function apply(){
-      const q = document.getElementById('searchInput').value.toLowerCase().trim();
-      const sort = document.getElementById('sortSelect').value; 
+    items.forEach(p=>{
+      const badge = p.Badge ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">${p.Badge}</span>` :
+                     p.DiscountPercent ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">-${p.DiscountPercent}% OFF</span>` : '';
 
-       const filtered = PRODUCTS
-        .filter(p => ACTIVE === 'All' || (p.Category||'Others').trim() === ACTIVE)
-        .filter(p => !q || (p.Title||'').toLowerCase().includes(q));
-
-      const arr = [...filtered];
-      switch(sort){
-        case 'priceAsc': arr.sort((a, b) => (money(a.Price)||Infinity) - (money(b.Price)||Infinity)); break;
-        case 'priceDesc': arr.sort((a, b) => (money(b.Price)||-Infinity) - (money(a.Price)||-Infinity)); break;
-        case 'ratingDesc': arr.sort((a, b) => (b.StarRating||0) - (a.StarRating||0)); break;
-        case 'reviewsDesc': arr.sort((a, b) => (b.ReviewCount||0) - (a.ReviewCount||0)); break;
-        default: arr.sort((a,b)=>(b.IsFeatured?1:0)-(a.IsFeatured?1:0));
-      }
-      renderGrid(arr);
-    }
-
-    function renderGrid(items){
-      const row = document.querySelector(`.tab-pane.show.active .row.g-4`);
-      if(!row) return;
-      row.innerHTML = '';
-
-      items.forEach(p=>{
-        const badge = p.Badge ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">${p.Badge}</span>` :
-                       p.DiscountPercent ? `<span class="badge bg-danger position-absolute top-0 start-0 m-2">-${p.DiscountPercent}% OFF</span>` : '';
-
-        const col = document.createElement('div');
-        col.className = 'col-lg-3 col-md-4 col-sm-6';
-        col.innerHTML = `
-          <div class="card h-100 border-0 rounded-4 shadow-sm position-relative overflow-hidden hover-card">
-            ${badge}
-            <div class="bg-white text-center">
-              <img class="product-img p-3 w-100" src="${p.ImageUrl}" alt="${p.Title}">
-            </div>
-
-            <div class="card-body d-flex flex-column">
-              <h6 class="title-2lines fw-semibold" title="${p.Title}">${p.Title}</h6>
-
-              <div class="mb-1">
-                ${starHtml(p.StarRating)}
-                <small class="text-muted">(${nf(p.ReviewCount||0)} reviews)</small>
-              </div>
-
-              <p class="text-success fw-bold mb-0">${p.Price||''}</p>
-              <p class="small text-muted fst-italic mb-2">💡 Amount may vary on Amazon</p>
-
-              <a class="btn btn-warning text-dark fw-bold mt-auto"
-                 href="${p.AffiliateLink||'#'}"
-                 target="_blank"
-                 rel="nofollow noopener noreferrer">
-                🛒 Buy Now on Amazon
-              </a>
-            </div>
+      const col = document.createElement('div');
+      col.className = 'col-lg-3 col-md-4 col-sm-6';
+      col.innerHTML = `
+        <div class="card h-100 border-0 rounded-4 shadow-sm position-relative overflow-hidden hover-card">
+          ${badge}
+          <div class="bg-white text-center">
+            <img class="product-img p-3 w-100" src="${p.ImageUrl}" alt="${p.Title}">
           </div>
-        `;
-        row.appendChild(col);
-      });
-    }
-  </script>
+
+          <div class="card-body d-flex flex-column">
+            <h6 class="title-2lines fw-semibold" title="${p.Title}">${p.Title}</h6>
+
+            <div class="mb-1">
+              ${starHtml(p.StarRating)}
+              <small class="text-muted">(${nf(p.ReviewCount||0)} reviews)</small>
+            </div>
+
+            <p class="text-success fw-bold mb-0">${p.Price||''}</p>
+            <p class="small text-muted fst-italic mb-2">💡 Amount may vary on Amazon</p>
+
+            <a class="btn btn-warning text-dark fw-bold mt-auto"
+               href="${p.AffiliateLink||'#'}"
+               target="_blank"
+               rel="nofollow noopener noreferrer">
+              🛒 Buy Now on Amazon
+            </a>
+          </div>
+        </div>
+      `;
+      row.appendChild(col);
+    });
+  }
+</script>
+
 </body>
 </html>
