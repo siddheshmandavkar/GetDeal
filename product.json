@@ -1,30 +1,5 @@
 [
   {
-    "ASIN": "6",
-    "Title": "soundcore by Anker R50i VI True Wireless Earbuds",
-    "Price": "999",
-    "ImageUrl": "https://m.media-amazon.com/images/I/612Z9cuWLpL._SY450_.jpg",
-    "AffiliateLink": "https://amzn.to/3UJ6NA0",
-    "StarRating": 4,
-    "ReviewCount": 50989,
-    "IsFeatured": false,
-    "Badge": "Best Seller",
-    "DiscountPercent": 56
-  },
-  {
-    "ASIN": "5",
-    "Title": "ea ekam art Sun Protection Rajasthani Umbrella Handicraft Walking Stick - 5 Pieces",
-    "Price": "975",
-    "ImageUrl": "https://m.media-amazon.com/images/I/71E-d5PWnYL._SY450_.jpg",
-    "AffiliateLink": "https://amzn.to/3Jwe7N1",
-    "Category": "Fashion",
-    "StarRating": 4,
-    "ReviewCount": 479,
-    "IsFeatured": false,
-    "Badge": "Hot Deal",
-    "DiscountPercent": 44
-  },
-  {
     "ASIN": "1",
     "Title": "Dot & Key Strawberry Dew Tinted Sunscreen SPF 50+",
     "Price": "499",
@@ -75,5 +50,44 @@
     "IsFeatured": false,
     "Badge": "Hot Deal",
     "DiscountPercent": 15
+  },
+  {
+    "ASIN": "5",
+    "Title": "ea ekam art Sun Protection Rajasthani Umbrella Handicraft Walking Stick - 5 Pieces",
+    "Price": "975",
+    "ImageUrl": "https://m.media-amazon.com/images/I/71E-d5PWnYL._SY450_.jpg",
+    "AffiliateLink": "https://amzn.to/3Jwe7N1",
+    "Category": "Fashion",
+    "StarRating": 4,
+    "ReviewCount": 479,
+    "IsFeatured": false,
+    "Badge": "Hot Deal",
+    "DiscountPercent": 44
+  },
+  {
+    "ASIN": "6",
+    "Title": "soundcore by Anker R50i VI True Wireless Earbuds",
+    "Price": "999",
+    "ImageUrl": "https://m.media-amazon.com/images/I/612Z9cuWLpL._SY450_.jpg",
+    "AffiliateLink": "https://amzn.to/3UJ6NA0",
+    "Category": "Earpod",
+    "StarRating": 4,
+    "ReviewCount": 50989,
+    "IsFeatured": false,
+    "Badge": "Best Seller",
+    "DiscountPercent": 56
+  },
+  {
+    "ASIN": "7",
+    "Title": "Atom 10Kg Kitchen Weight Machine 6 Months Warranty",
+    "Price": "205",
+    "ImageUrl": "https://m.media-amazon.com/images/I/71775fRr+gL._SX466_.jpg",
+    "AffiliateLink": "https://amzn.to/47LWFxX",
+    "Category": "Home & Kitchen",
+    "StarRating": 4,
+    "ReviewCount": 14708,
+    "IsFeatured": false,
+    "Badge": "Top Seller",
+    "DiscountPercent": 66
   }
 ]
